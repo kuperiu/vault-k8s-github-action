@@ -1,0 +1,23 @@
+{
+  "name": "vault-k8s-github-action",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kuperiu/vault-k8s-github-action.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kuperiu/vault-k8s-github-action/issues"
+  },
+  "homepage": "https://github.com/kuperiu/vault-k8s-github-action#readme",
+  "dependencies": {
+    "node-vault": "^0.9.20",
+    "@actions/core": "^1.2.4"
+  }
+}

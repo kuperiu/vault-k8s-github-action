@@ -1,0 +1,7 @@
+
+name: 'vault-k8s-github-action'
+description: 'vault-k8s-github-action'
+author: 'kuperiu'
+runs:
+  using: 'node12'
+  main: 'index.js'
