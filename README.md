@@ -10,7 +10,7 @@ A github action that enables you to fetch a vault secret using a K8S service acc
       env:
         VAULT_ADDR: https://myvault.com
         VAULT_NAMESPACE: mynamesapce
-        ENV_VAR: myenvvar
         VAULT_ROLE: myvaultrole
         VAULT_KEY: myvaultsecretkey
+        ENV_VAR: myenvvar
 ```
