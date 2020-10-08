@@ -12,5 +12,6 @@ A github action that enables you to fetch a vault secret using a K8S service acc
         VAULT_NAMESPACE: mynamesapce
         VAULT_ROLE: myvaultrole
         VAULT_KEY: myvaultsecretkey
+        VAULT_FIELD: myvaultfield
         ENV_VAR: myenvvar
 ```

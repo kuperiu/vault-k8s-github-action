@@ -4,6 +4,7 @@ const endpont = process.env.VAULT_ADDR;
 const namespace = process.env.VAULT_NAMESPACE;
 const role = process.env.VAULT_ROLE;
 const vaultKey = process.env.VAULT_KEY;
+const vaultField = process.env.VAULT_FIELD;
 
 const core = require('@actions/core');
 
@@ -23,6 +24,6 @@ const resp = vault.kubernetesLogin({  jwt: jwt, role: role})
 .catch((err) => console.error(err.message));
 
 Promise.resolve(resp).then((values) => {
-    core.exportVariable(envVar, values.data.token);
+    core.exportVariable(envVar, values.data[vaultField]);
 });
 
