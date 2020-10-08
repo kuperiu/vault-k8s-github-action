@@ -21,7 +21,10 @@ const resp = vault.kubernetesLogin({  jwt: jwt, role: role})
 .then(function(resp) {
     return resp;
 })
-.catch((err) => console.error(err.message));
+.catch((err) => {
+    console.log(err)
+    process.exit(1)
+});
 
 Promise.resolve(resp).then((values) => {
     core.exportVariable(envVar, values.data[vaultField]);
