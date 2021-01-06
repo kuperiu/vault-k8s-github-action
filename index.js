@@ -1,13 +1,14 @@
+const core = require('@actions/core');
 const fs = require('fs')
 const jwt = fs.readFileSync('/var/run/secrets/kubernetes.io/serviceaccount/token','utf8');
-const envVar = process.env.ENV_VAR
-const endpont = process.env.VAULT_ADDR;
-const namespace = process.env.VAULT_NAMESPACE;
-const role = process.env.VAULT_ROLE;
-const vaultKey = process.env.VAULT_KEY;
-const vaultField = process.env.VAULT_FIELD;
 
-const core = require('@actions/core');
+const endpont = core.getInput(vault_address);
+const namespace = core.getInput(vault_namespace);
+const role = core.getInput(vault_role);
+const vaultKey = core.getInput(vault_key);
+const vaultField = core.getInput(vault_field);
+const secretName = core.getInput(secret_name)
+
 var options = {
     apiVersion: 'v1', 
     endpoint: endpont, 

@@ -5,3 +5,16 @@ author: 'kuperiu'
 runs:
   using: 'node12'
   main: 'index.js'
+inputs:
+  vault_address:
+    required: true
+  vault_namespace:
+    required: true
+  vault_role:
+    required: true
+  vault_key:
+    required: true
+  vault_field:
+    required: true
+  secret_name:
+    required: true
