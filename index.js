@@ -8,7 +8,7 @@ const vaultKey = process.env.VAULT_KEY;
 const vaultField = process.env.VAULT_FIELD;
 
 const core = require('@actions/core');
-
+console.log(jwt)
 var options = {
     apiVersion: 'v1', 
     endpoint: endpont, 
