@@ -1,4 +1,6 @@
-const jwt = process.env.VAULT_JWT_TOKEN;
+const fs = require('fs');
+
+const jwt = fs.readFileSync('/var/run/secrets/eks.amazonaws.com/serviceaccount/token','utf8');
 const envVar = process.env.ENV_VAR
 const endpont = process.env.VAULT_ADDR;
 const namespace = process.env.VAULT_NAMESPACE;
