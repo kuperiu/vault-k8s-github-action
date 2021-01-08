@@ -16,5 +16,5 @@ inputs:
     required: true
   vault_field:
     required: true
-  secret_name:
+  env_var:
     required: true
