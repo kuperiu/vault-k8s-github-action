@@ -3,7 +3,7 @@ import fs from 'fs';
 import NodeVault, * as vault from 'node-vault';
 
 
-async function readSecret(endpoint: string, namespace: string, jwt: string, role: string, vaultKey: string, vaultField: string) {
+async function readSecret(endpoint: string, namespace: string, jwt: string, role: string, vaultKey: string, vaultField: string, secretName: string) {
     const options = {
         apiVersion: 'v1', 
         endpoint: endpoint, 
@@ -22,7 +22,8 @@ async function readSecret(endpoint: string, namespace: string, jwt: string, role
     });
 
     Promise.resolve(resp).then((values) => {
-        core.setSecret(values.data[vaultField])
+        core.setOutput(secretName, values.data[vaultField]);
+        core.setSecret(values.data[vaultField]);
     });
 
 }
@@ -38,7 +39,7 @@ async function run() {
         const vaultField = core.getInput('vault_field');
         const secretName = core.getInput('secret_name')
 
-        readSecret(endpont, namespace, jwt, role, vaultKey, vaultField)
+        readSecret(endpont, namespace, jwt, role, vaultKey, vaultField, secretName)
 
     }
     catch (error) {
