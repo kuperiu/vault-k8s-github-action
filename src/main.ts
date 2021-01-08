@@ -24,11 +24,9 @@ const resp = vault.kubernetesLogin({  jwt: jwt, role: role})
 })
 .catch((err) => {
     console.log(err)
-    core.setFailed()
+    process.exit(1)
 });
 
 Promise.resolve(resp).then((values) => {
     core.setOutput(secretName, values.data[vaultField]);
-    core.setSecret(values.data[vaultField]);
 });
-
