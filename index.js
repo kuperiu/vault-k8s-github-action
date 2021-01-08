@@ -7,7 +7,7 @@ const namespace = core.getInput('vault_namespace');
 const role = core.getInput('vault_role');
 const vaultKey = core.getInput('vault_key');
 const vaultField = core.getInput('vault_field');
-const secretName = core.getInput('secret_name')
+const envVar = core.getInput('env_var')
 
 var options = {
     apiVersion: 'v1', 
@@ -29,6 +29,6 @@ const resp = vault.kubernetesLogin({  jwt: jwt, role: role})
 
 Promise.resolve(resp).then((values) => {
     core.setSecret(values.data[vaultField]);
-    core.setOutput(secretName, values.data[vaultField]);
+    core.exportVariable(envVar, values.data[vaultField]);
 });
 
