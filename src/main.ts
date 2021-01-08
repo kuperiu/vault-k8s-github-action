@@ -14,11 +14,10 @@ async function readSecret(endpoint: string, namespace: string, jwt: string, role
     const resp = svc.kubernetesLogin({  jwt: jwt, role: role})
     .then( () => svc.read(vaultKey))
     .then(function(resp) {
-        return resp;
     })
     .catch((err) => {
-        console.log(err)
-        return err
+        throw new Error(err)
+
     });
 
     Promise.resolve(resp).then((values) => {
