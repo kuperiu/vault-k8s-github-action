@@ -1,7 +1,7 @@
 # vault-k8s-github-action
 
 ## Description
-A github action that enables you to fetch a vault secret using a K8S service account and set it as an output
+A github action that enables you to fetch a vault secret using a K8S service account and set it as an environment variable
 
 ## Example
 ```yaml
@@ -14,9 +14,5 @@ A github action that enables you to fetch a vault secret using a K8S service acc
         vault_role: myvaultrole
         vault_key: myvaultsecretkey
         vault_field: myvaultfield
-        secret_name: my_secret
-
-    - name: Output
-      run: echo "${{ steps.secrets.outputs.my_secret }}"
-
+        env_var: my_secret
 ```
